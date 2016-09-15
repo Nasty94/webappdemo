@@ -1,0 +1,103 @@
+
+
+buildscript {
+    dependencies {
+        classpath 'com.h2database:h2:1.4.191'
+    }
+}
+
+plugins {
+    id "org.flywaydb.flyway" version "4.0.3"
+}
+
+flyway {
+    url = 'jdbc:h2:file:./Documents/GitHub/webapp/src/main/oms'
+    user = 'sa'
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'jetty'
+
+// JDK 7
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+
+
+dependencies {
+ 
+	compile 'ch.qos.logback:logback-classic:1.1.3'
+	compile 'org.springframework:spring-webmvc:4.1.6.RELEASE'
+	compile 'javax.servlet:jstl:1.2'
+	// https://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api
+    compile group: 'javax.servlet.jsp', name: 'jsp-api', version: '2.0'
+
+	providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+	// https://mvnrepository.com/artifact/com.h2database/h2
+    compile group: 'com.h2database', name: 'h2', version: '1.0.60'
+	// https://mvnrepository.com/artifact/org.testng/testng
+    compile group: 'org.testng', name: 'testng', version: '6.8'
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+   compile group: 'org.springframework', name: 'spring-webmvc', version: '2.5.2'
+   runtime files(org.gradle.internal.jvm.Jvm.current().toolsJar)
+   // https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+   compile group: 'javax.servlet', name: 'javax.servlet-api', version: '3.0.1'
+   // https://mvnrepository.com/artifact/javax.servlet/servlet-api
+compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
+// https://mvnrepository.com/artifact/com.opensymphony/xwork
+compile group: 'com.opensymphony', name: 'xwork', version: '2.1.2'
+// https://mvnrepository.com/artifact/javax.ws.rs/jsr311-api
+compile group: 'javax.ws.rs', name: 'jsr311-api', version: '0.11'
+// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+compile group: 'org.json', name: 'json', version: '20141113'
+   
+    
+	
+	
+	
+}
+
+// Embeded Jetty for testing
+jettyRun{
+	contextPath = 'webapp'
+	httpPort = 8080
+
+}
+
+jettyRunWar{
+	contextPath = 'webapp'
+	httpPort = 8080
+
+}
+
+jettyStop{
+    
+    stopPort = 8090
+	stopKey = 'stopKey'
+
+}
+
+
+
+//For Eclipse IDE only
+eclipse {
+
+  wtp {
+    component {
+      
+      //define context path, default to project folder name
+      contextPath = 'webapp'
+      
+    }
+    
+  }
+}
+
