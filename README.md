@@ -62,6 +62,12 @@ Calculator:
 - see CalculatorServlet class for GET method calculator implementation
 - see CalculatorRESTServiceClient for POST method calculator implementation
 - txt file for POST method is in the com.demo.calculator package
+- commands:
+   * add - addition
+   * sub - subtraction
+   * mul - multiplication
+   * div - division
+   
 - path for file: 
     String userhome = System.getProperty("user.home");
     InputStream calculateInputStream = new FileInputStream(userhome + "/Documents/GitHub/webapp/src/main/java/com/demo/calculator/calc.txt");
