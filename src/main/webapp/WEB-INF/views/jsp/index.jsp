@@ -107,14 +107,6 @@ span {
 	</div>
 </div>
 
-<!-- 
-<ul class="tab">
-
-  <li><a id="EmployeeTab" href="#" class="tablinks" onclick="openTab(event, 'Employee')">Employee</a></li>
-  <li><a id="CalculatorTab" href="#" class="tablinks" onclick="openTab(event, 'Calculator')">Calculator</a></li>
-  
-</ul>
- -->
 <div id="Employee" class="tabcontent">
  <div class="container">
 
@@ -213,6 +205,7 @@ span {
                 </td>
              </tr>
           </table>
+        <!--  <p>Message: <span id="messageEmployeeEdit">${messageEmployeeEdit}</span></p>-->
        </form>
           </div> <!--form-->
  
@@ -266,6 +259,8 @@ span {
                 </td>
              </tr>
           </table>
+          
+         <!-- <p>Message: <span id="messageEmployeeAdd">${messageEmployeeAdd}</span></p>-->
        </form>
   </div> <!--form-->
 	</div>	 <!--col-md-4-->
@@ -362,6 +357,7 @@ span {
                 </td>
              </tr>
           </table>
+        <!--  <p>Message: <span id="messageBossEdit">${messageBossEdit}</span></p>-->
        </form>
           </div> <!--form-->
  
@@ -411,6 +407,7 @@ span {
                 </td>
              </tr>
           </table>
+         <!-- <p>Message: <span id="messageBossAdd">${messageBossAdd}</span></p>-->
        </form>
   </div> <!--form-->
 	</div>	 <!--col-md-4-->
@@ -472,26 +469,6 @@ Enter 2nd Number <input type="text" name="n2"><br>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<script type="text/javascript">
-   
-function openTab(evt, cityName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-function show(id)
-{
-document.getElementById(id).style.display="block" ;
-}
-</script>
 
 </body>
 </html>

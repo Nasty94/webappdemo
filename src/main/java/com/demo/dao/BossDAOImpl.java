@@ -111,7 +111,8 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
          if (errorString != null && boss == null) {
              try {
 				response.sendRedirect(request.getServletPath() + "/boss");
-				logger.debug("getBoss() sth went wrong / found no boos");
+				logger.debug("getBoss() sth went wrong / found no boss");
+				//request.setAttribute("messageEmployeeEdit", "cannot find such boss in database");
 			} catch (IOException e) {
 				logger.debug("getBoss() Send Request Exception is executed!" +e.getMessage());
 				e.printStackTrace();
@@ -245,22 +246,16 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
         
          ResultSet vresult1 = validate1.executeQuery("SELECT * FROM BOSS WHERE SECURITYCODE="+securitycode);
          if (vresult1.next()){
-        	 errorString = "Sorry! This securitycode is already assigned to another client " + vo1.getFirstName() + " " + vo1.getLastName();
+        	 errorString = "Sorry! This securitycode is already assigned to another boss " + vo1.getFirstName() + " " + vo1.getLastName();
           	  //System.out.println(errorString);
           	  
           	  logger.debug(errorString);
           	  
           	// Set the MIME type for the response message
                 response.setContentType("text/html");
-               
-            
-                // The programming logic to produce a HTML page
-                out.println("<p>" + errorString + "</p>");
-               /* ScriptEngineManager factory = new ScriptEngineManager();
-                ScriptEngine engine = factory.getEngineByName("JavaScript");
-                engine.eval("window.alert("+errorString+")");*/
-                
+
                 response.sendRedirect(request.getContextPath() + "/boss");
+                //  request.setAttribute("messageBossAdd", errorString);
           	  
             }
          else {

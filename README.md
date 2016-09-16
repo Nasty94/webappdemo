@@ -53,12 +53,12 @@ Employees and bosses:
 - bosses are shown in Boss table
 - to view employee click on "View details" under employee table or go to http://localhost:8080/webapp/employee
 - to view employee click on "View details" under boss table or go to http://localhost:8080/webapp/boss
-- during chaning employee /boss you redirect to link like http://localhost:8080/webapp/editBoss?securitycode=835678
+- during changing employee /boss you redirect to link like http://localhost:8080/webapp/editBoss?securitycode=835678
 - during creating employee / boss you redirected back to to http://localhost:8080/webapp/boss or to http://localhost:8080/webapp/employee
 
 Calculator:
 - standart calculator uses Get method to calculate value. Result is shown under "result" span.
-- Post methtod reads file in json format and gives the calculation and result.
+- Post method reads file in json format and gives the calculation and result.
 - see CalculatorServlet class for GET method calculator implementation
 - see CalculatorRESTServiceClient for POST method calculator implementation
 - txt file for POST method is in the com.demo.calculator package
@@ -76,14 +76,13 @@ Calculator:
 
 Other comments:
 
-- when you add order, please makse sure that client security code is in table "Client". Otherwise NullPointerException raised.
 - security codes and ids are type of Integer.
 - basic functionality implemented in com.demo.dao.*
 - screenshots from interface are in /src/main/pic/
 - as there was no information about error handling in task description, please note that
-     * it is NOT possible to add product if barcode is already in database
-     * it is NOT possible to add client if securitycode is already in database
-     * it is NOT possible to add order if client does not exist in database
-     * no erro are shown, user just redirested no relevant tag and do data is added 
+     * it is NOT possible to add employee if securitycode is already in database
+     * it is NOT possible to add boss if securitycode is already in database
+     * it is NOT possible to add employee's boss if boss does not exist in database
+     * no error are shown, user just redirected to view page 
      * to view errors please see log file
 
