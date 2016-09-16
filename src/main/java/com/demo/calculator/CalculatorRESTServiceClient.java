@@ -80,52 +80,7 @@ public class CalculatorRESTServiceClient extends HttpServlet {
 				json.put("resultPost","not supported operation");
 				request.setAttribute("resultPost", json); 
 			}
-			
-			/*
-			JSONObject jsonObject = new JSONObject(string);
-			    //System.out.println(jsonObject);
-			
-			display();
-			
-            PrintWriter out = response.getWriter();
-            out.println(jsonObject);
-			//http://stackoverflow.com/questions/18393210/how-to-write-regex-to-extract-pattern-from-string
-		//	String[] ops = jsonObject.getJSONObject("calculate") //jsonObject.getJSONObject("calculate").getString("op");
-			
-			for(String[] s : ops) {
-			    String op = s[2];
-		    	int a1 = Integer.parseInt(jsonObject.getJSONObject("calculate").getString("no1"));
-		    	int a2 = Integer.parseInt(jsonObject.getJSONObject("calculate").getString("no2"));
-			
-		     	if (op.equals("add")) { 
-				   json.put("<h3> Addition= </h3>",new Integer((a1+a2)));
-			       out.println(json);
-				}
-				else if (op.equals("sub")) { 
-				   json.put("<h3> Substraction= </h3>",new Integer((a1-a2)));
-			       out.println(json);
-				}
-			}    */
-			
-			try {
-				URL url = new URL("http://localhost:8080/webapp/api/calculateRESTServiceClient");
-				URLConnection connection = url.openConnection();
-				connection.setDoOutput(true);
-				connection.setRequestProperty("Content-Type", "application/json");
-				connection.setConnectTimeout(5000);
-				connection.setReadTimeout(5000);
-				
- 
-				BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
- 
-				while (in.readLine() != null) {
-				}
-				System.out.println("\ncalculate REST Service Invoked Successfully..");
-				in.close();
-			} catch (Exception e) {
-				System.out.println("\nError while calling calculate REST Service");
-				System.out.println(e);
-			}
+
  
 			br.close();
 		} catch (Exception e) {
