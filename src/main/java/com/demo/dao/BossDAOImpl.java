@@ -197,6 +197,7 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
         // Redirect to the product listing page.            
         else {
             response.sendRedirect(request.getContextPath() + "/boss");
+            request.getSession().setAttribute("messageBossEdit", "boss: " + vo1.getSecuritycode() + " has been updated.");
         }
         
         return vo1;
@@ -214,10 +215,8 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
 				logger.debug("InsertBoss Connection Exception() is executed!" + e1.getMessage());
 				e1.printStackTrace();
 			}
-			
-			 // Create a Writer to write the response mess
-			 PrintWriter out = response.getWriter();
-		 int id = Integer.parseInt((String) request.getParameter("id"));
+		
+		// int id = Integer.parseInt((String) request.getParameter("id"));
 		 int securitycode = Integer.parseInt((String) request.getParameter("securitycode"));
 	     String firstname = (String) request.getParameter("firstname");
 	     String lastname = (String) request.getParameter("lastname");
@@ -228,7 +227,7 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
 	     String errorString = null;
 
 	     BossVO vo1 = new BossVO();
-		 vo1.setId(id);
+		// vo1.setId(id);
 	     vo1.setSecuritycode(securitycode);
 	     vo1.setFirstName(firstname);
 	     vo1.setLastName(lastname);
@@ -255,7 +254,7 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
                 response.setContentType("text/html");
 
                 response.sendRedirect(request.getContextPath() + "/boss");
-                //  request.setAttribute("messageBossAdd", errorString);
+                request.getSession().setAttribute("messageBossAdd", errorString);
           	  
             }
          else {
@@ -284,6 +283,7 @@ public class BossDAOImpl  extends HttpServlet implements BossDAO{
 	     // Redirect to the product listing page.            
 	     else {
 	         response.sendRedirect(request.getContextPath() + "/boss");
+	         request.getSession().setAttribute("messageBossAdd", "boss: " + vo1.getFirstName() + " " + vo1.getLastName() + " added.");
 	     }
 	     return vo1;
 		}

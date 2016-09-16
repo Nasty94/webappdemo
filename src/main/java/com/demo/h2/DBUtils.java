@@ -72,7 +72,7 @@ public class DBUtils {
 
 
 public static void insertEmployee(Connection conn, EmployeeVO employee) throws SQLException {
-	String create = "create table employee(id int autoincrement not null, securitycode int not null, firstname varchar(255) not null, lastname varchar(255) not null, phone int not null, country varchar(255) , address varchar(255) not null, boss int not null)";
+	String create = "create table employee(id int auto_increment not null, securitycode int not null, firstname varchar(255) not null, lastname varchar(255) not null, phone int not null, country varchar(255) , address varchar(255) not null, boss int not null)";
 	TableCheck(conn, "EMPLOYEE", create);
 	  
 	String sql = "Insert into Employee(securitycode, firstname, lastname, phone, country, address, boss) values (?,?,?,?,?,?,?)";
@@ -143,7 +143,7 @@ public static void insertEmployee(Connection conn, EmployeeVO employee) throws S
 
 
 public static void insertBoss(Connection conn, BossVO boss) throws SQLException {
-	String create = "create table employee(id int autoincrement not null, securitycode int not null, firstname varchar(255) not null, lastname varchar(255) not null, phone int not null, country varchar(255) , address varchar(255)) not null";
+	String create = "create table employee(id int auto_increment not null, securitycode int not null, firstname varchar(255) not null, lastname varchar(255) not null, phone int not null, country varchar(255) , address varchar(255)) not null";
 	TableCheck(conn, "BOSS", create);
 	  
 	String sql = "Insert into Boss(securitycode, firstname, lastname, phone, country, address) values (?,?,?,?,?,?)";

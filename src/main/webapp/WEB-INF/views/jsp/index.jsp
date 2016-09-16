@@ -205,7 +205,7 @@ span {
                 </td>
              </tr>
           </table>
-        <!--  <p>Message: <span id="messageEmployeeEdit">${messageEmployeeEdit}</span></p>-->
+        <p>Message: <span id="messageEmployeeEdit">${messageEmployeeEdit}</span></p>
        </form>
           </div> <!--form-->
  
@@ -219,10 +219,7 @@ span {
        <form id = "createEmployee" method="POST" action="doCreateEmployee">
           
           <table border="0">
-		    <tr>
-                <td>Id</td>
-                <td><input type="text" name="id" value="${employee.id}" required/></td>
-             </tr>
+		    
               <tr>
                 <td>Code</td>
                 <td><input type="text" name="securitycode" value="${employee.securitycode}" required/></td>
@@ -260,7 +257,7 @@ span {
              </tr>
           </table>
           
-         <!-- <p>Message: <span id="messageEmployeeAdd">${messageEmployeeAdd}</span></p>-->
+        <p>Message: <span id="messageEmployeeAdd">${messageEmployeeAdd}</span></p>
        </form>
   </div> <!--form-->
 	</div>	 <!--col-md-4-->
@@ -357,7 +354,7 @@ span {
                 </td>
              </tr>
           </table>
-        <!--  <p>Message: <span id="messageBossEdit">${messageBossEdit}</span></p>-->
+       <p>Message: <span id="messageBossEdit">${messageBossEdit}</span></p>
        </form>
           </div> <!--form-->
  
@@ -371,10 +368,7 @@ span {
        <form id = "createBoss" method="POST" action="doCreateBoss">
           
           <table border="0">
-		     <tr>
-                <td>Id</td>
-                <td><input type="text" name="id" value="${boss.id}" required/></td>
-             </tr>
+		     
               <tr>
                 <td>Code</td>
                 <td><input type="text" name="securitycode" value="${boss.securitycode}" required/></td>
@@ -407,7 +401,7 @@ span {
                 </td>
              </tr>
           </table>
-         <!-- <p>Message: <span id="messageBossAdd">${messageBossAdd}</span></p>-->
+         <p>Message: <span id="messageBossAdd">${messageBossAdd}</span></p>
        </form>
   </div> <!--form-->
 	</div>	 <!--col-md-4-->

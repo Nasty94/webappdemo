@@ -1,7 +1,7 @@
 
 # Web app demo
 
-In this web app you can store, change and create employees and bosses. Also clients and products are editable.
+In this web app you can store, change and create employees and bosses. 
 Also there is calculation function implemented using GET and POST methods.
 
 Installation:
@@ -83,6 +83,6 @@ Other comments:
      * it is NOT possible to add employee if securitycode is already in database
      * it is NOT possible to add boss if securitycode is already in database
      * it is NOT possible to add employee's boss if boss does not exist in database
-     * no error are shown, user just redirected to view page 
-     * to view errors please see log file
+     * Error essages are shown under "Message" span under each form after redirection.
+     * to view errors you can also check log file
 

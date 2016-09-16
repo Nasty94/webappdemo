@@ -30,31 +30,31 @@ public class CalculatorServlet extends HttpServlet
 		
 		
 		
-		if (request.getParameter("r1")!=null) // checking if 1st radio button checked or not?
+		if (request.getParameter("r1")!=null) 
 		{
 
 			int sum = a1+a2;
-		    request.setAttribute("result", sum); // It'll be available as ${sum}.
+		    request.setAttribute("result", sum); 
 
 		}
-		else if(request.getParameter("r2")!=null) // checking if 2nd radio button checked or not?
+		else if(request.getParameter("r2")!=null) 
 		{
 			
 			int sub = a1 - a2;
-		    request.setAttribute("result", sub); // It'll be available as ${sum}.
+		    request.setAttribute("result", sub); 
 
 		}
-		else if(request.getParameter("r3")!=null) //checking if 3rd radio button checked or not?
+		else if(request.getParameter("r3")!=null) 
 		{
 			
 			int mult = a1*a2;
-		    request.setAttribute("result", mult); // It'll be available as ${sum}.
+		    request.setAttribute("result", mult); 
 
 		}
 		else
 		{
 			int dev = a1/a2;
-		    request.setAttribute("result", dev); // It'll be available as ${sum}.
+		    request.setAttribute("result", dev); 
 
 		}		
 		

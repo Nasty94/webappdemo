@@ -108,7 +108,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
          if (errorString != null && employee == null) {
              try {
 				response.sendRedirect(request.getServletPath() + "/employee");
-				request.setAttribute("messageEmployeeEdit", "cannot find such employee in database");
+				request.getSession().setAttribute("messageEmployeeEdit", "cannot find such employee in database");
 			} catch (IOException e) {
 				logger.debug("getEmployee() Send Request Exception is executed!" +e.getMessage());
 				e.printStackTrace();
@@ -163,7 +163,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
         
      
         
-       // if(countries.contains(vo1.getCountry())) {
+     
   
         try {
             DBUtils.updateEmployee(conn, vo1);
@@ -176,8 +176,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
         	logger.debug("updateEmployee() ParseException is executed! " + e.getMessage());
  		 return null;
  	}
-       // }
-  
+        
         // Store infomation to request attribute, before forward to views.
         request.setAttribute("errorString", errorString);
         request.setAttribute("NewEmployee", vo1);
@@ -194,6 +193,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
         // Redirect to the product listing page.            
         else {
             response.sendRedirect(request.getContextPath() + "/employee");
+            request.getSession().setAttribute("messageEmployeeEdit", "employee: " + vo1.getSecuritycode() + " has been updated.");
         }
         
         return vo1;
@@ -213,7 +213,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
 			}
 			
 		
-		 int id = Integer.parseInt((String) request.getParameter("id"));
+		// int id = Integer.parseInt((String) request.getParameter("id"));
 		 int securitycode = Integer.parseInt((String) request.getParameter("securitycode"));
 	     String firstname = (String) request.getParameter("firstname");
 	     String lastname = (String) request.getParameter("lastname");
@@ -224,9 +224,9 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
 	     String errorString = null;
 
 	     EmployeeVO vo1 = new EmployeeVO();
-	     vo1.setId(id);
+	    // vo1.setId(id);
 	     vo1.setSecuritycode(securitycode);
-	     vo1.setFirstName(firstname);
+	     vo1.setFirstName(firstname); 
 	     vo1.setLastName(lastname);
 	     vo1.setPhone(phone);
 	     vo1.setCountry(country);
@@ -250,7 +250,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
                 response.setContentType("text/html");
   
                 response.sendRedirect(request.getContextPath() + "/employee");
-                //   request.setAttribute("messageEmployeeAdd", errorString);
+                request.getSession().setAttribute("messageEmployeeAdd", errorString);
           	  
             }
          else if(!vresult2.next()){
@@ -263,7 +263,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
                response.setContentType("text/html");
  
                response.sendRedirect(request.getContextPath() + "/employee");
-               //  request.setAttribute("messageEmployeeAdd", errorString);
+               request.getSession().setAttribute("messageEmployeeAdd", errorString);
          }
          
          else{
@@ -281,7 +281,7 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
 	         errorString = e.getMessage();
 	         logger.debug("insertEmployee() DBUtils.insertEmployee Exception is executed! " + errorString);
 	         response.sendRedirect(request.getContextPath() + "/employee");
-	         // request.setAttribute("messageEmployeeAdd", errorString);
+	         request.getSession().setAttribute("messageEmployeeAdd", errorString);
 	     }
 	      
 	     // Store infomation to request attribute, before forward to views.
@@ -293,14 +293,14 @@ public class EmployeeDAOImpl  extends HttpServlet implements EmployeeDAO{
 	   	  ServletContext context = request.getSession().getServletContext();
 	         RequestDispatcher dispatcher = context.getRequestDispatcher("/WEB-INF/views/index.jsp");
 	         dispatcher.forward(request, response);
-	         // request.setAttribute("messageEmployeeAdd", errorString);
+	         request.getSession().setAttribute("messageEmployeeAdd", errorString);
 	     }
 
 	     // If everything nice.
 	     // Redirect to the product listing page.            
 	     else {
 	         response.sendRedirect(request.getContextPath() + "/employee");
-	         // request.setAttribute("messageEmployeeAdd", "done");
+	         request.getSession().setAttribute("messageEmployeeAdd", "employee: " + vo1.getFirstName() + " " + vo1.getLastName() + " added.");
 	     }
 	     return vo1;
 		}
