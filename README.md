@@ -73,6 +73,18 @@ Calculator:
     InputStream calculateInputStream = new FileInputStream(userhome + "/Documents/GitHub/webapp/src/main/java/com/demo/calculator/calc.txt");
     
     DO NOT FORGET TO CHANGE IT
+    
+- JSON calculation sample:
+{
+    "calculate": {
+        "no1": 2,
+        "no2": 5,
+        "op": "add"
+    }
+}
+
+NB! It is important that id "calculation" is present in json object.
+NB! program read only one calculation task per launch
 
 Other comments:
 
